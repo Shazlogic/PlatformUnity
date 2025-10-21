@@ -42,6 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Creatures
+    uniqueID: 1841013545
+    locked: 0
   - name: Background
     uniqueID: 1598499689
+    locked: 0
+  - name: Level
+    uniqueID: 3099118219
     locked: 0
