@@ -1,40 +1,43 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class HeroInputReader : MonoBehaviour
+namespace PixelCrew.Hero
 {
-    [SerializeField] private Hero _hero;
-
-    private HeroInputAction _inputActions;
-
-    private void Awake()
+    public class HeroInputReader : MonoBehaviour
     {
-        _inputActions = new HeroInputAction();
-        
-        _inputActions.Hero.Movement.performed += OnMovement;
-        _inputActions.Hero.Movement.canceled += OnMovement;
+        [SerializeField] private Hero _hero;
 
-        _inputActions.Hero.SaySomething.performed += OnSaySomething;
-    }
+        private HeroInputAction _inputActions;
 
-    private void OnEnable()
-    {
-        _inputActions.Enable();
-    }
+        private void Awake()
+        {
+            _inputActions = new HeroInputAction();
 
-    private void OnDisable()
-    {
-        _inputActions.Disable();
-    }
+            _inputActions.Hero.Movement.performed += OnMovement;
+            _inputActions.Hero.Movement.canceled += OnMovement;
 
-    public void OnMovement(InputAction.CallbackContext context)
-    {
-        var direction = context.ReadValue<Vector2>();
-        _hero.SetDirection(direction);
-    }
+            _inputActions.Hero.SaySomething.performed += OnSaySomething;
+        }
 
-    public void OnSaySomething(InputAction.CallbackContext context)
-    {
-        _hero.SaySomething();
+        private void OnEnable()
+        {
+            _inputActions.Enable();
+        }
+
+        private void OnDisable()
+        {
+            _inputActions.Disable();
+        }
+
+        public void OnMovement(InputAction.CallbackContext context)
+        {
+            var direction = context.ReadValue<Vector2>();
+            _hero.SetDirection(direction);
+        }
+
+        public void OnSaySomething(InputAction.CallbackContext context)
+        {
+            _hero.SaySomething();
+        }
     }
 }
