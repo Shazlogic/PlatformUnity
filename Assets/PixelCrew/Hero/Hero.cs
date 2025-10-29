@@ -33,7 +33,7 @@ namespace PixelCrew.Hero
             var isJumping = _direction.y > 0;
             if (isJumping)
             {
-                if (IsGrounded())
+                if (IsGrounded() && _rigidbody.velocity.y <= 0)
                 {
                     _rigidbody.AddForce(Vector2.up * _jumpImpulse, ForceMode2D.Impulse);
                 }
