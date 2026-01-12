@@ -2433,6 +2433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1519853783}
   - component: {fileID: 1519853784}
+  - component: {fileID: 1519853785}
   m_Layer: 8
   m_Name: WaterReflectLarge_1
   m_TagString: Untagged
@@ -2505,6 +2506,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1519853785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519853782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9216bf7cc678afe458fe9608bb8ebadf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _loop: 1
+  _sprites:
+  - {fileID: -6018279857378552221, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+  - {fileID: -6505298659582443948, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+  - {fileID: -7718236803453008505, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+  - {fileID: -2749089684739404911, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1610933874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,6 +2703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1674901076}
   - component: {fileID: 1674901077}
+  - component: {fileID: 1674901078}
   m_Layer: 8
   m_Name: WaterReflectLarge_0
   m_TagString: Untagged
@@ -2752,6 +2776,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1674901078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674901075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9216bf7cc678afe458fe9608bb8ebadf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _loop: 1
+  _sprites:
+  - {fileID: -6018279857378552221, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+  - {fileID: -6505298659582443948, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+  - {fileID: -7718236803453008505, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+  - {fileID: -2749089684739404911, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1681635368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,6 +2808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1681635369}
   - component: {fileID: 1681635370}
+  - component: {fileID: 1681635371}
   m_Layer: 8
   m_Name: WaterReflectLarge_2
   m_TagString: Untagged
@@ -2834,6 +2881,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1681635371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681635368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9216bf7cc678afe458fe9608bb8ebadf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _loop: 1
+  _sprites:
+  - {fileID: -6018279857378552221, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+  - {fileID: -6505298659582443948, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+  - {fileID: -7718236803453008505, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+  - {fileID: -2749089684739404911, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1686575904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3421,13 +3490,12 @@ SpriteRenderer:
   m_SortingLayerID: 1841013545
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6146700129834819302, guid: 828581e2b703e344f9bcf3192f2ab618,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 066ac17f26835884e9304856ff827058, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.75, y: 0.875}
+  m_Size: {x: 2, y: 1.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3489,8 +3557,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.75, y: 0.875}
+  m_Offset: {x: 0, y: 0.05}
+  m_Size: {x: 0.7, y: 0.8}
   m_Direction: 0
 --- !u!50 &1919632130
 Rigidbody2D:
