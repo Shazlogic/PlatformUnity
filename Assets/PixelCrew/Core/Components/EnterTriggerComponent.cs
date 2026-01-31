@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace PixelCrew.Components
+namespace PixelCrew.Core.Components
 {
     public class EnterTriggerComponent : MonoBehaviour
     {
         [SerializeField] private string _tag;
         [SerializeField] private UnityEvent _action;
+
         public static int TotalScore { get; set; }
 
         private void OnTriggerEnter2D(Collider2D other)
