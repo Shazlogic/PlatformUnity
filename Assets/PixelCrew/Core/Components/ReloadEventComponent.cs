@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace PixelCrew.Components
+namespace PixelCrew.Core.Components
 {
     public class ReloadEventComponent : MonoBehaviour
     {

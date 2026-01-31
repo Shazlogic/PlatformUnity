@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using PixelCrew.Gameplay.Hero.Components;
+using UnityEngine;
 
-namespace PixelCrew.Hero
+namespace PixelCrew.Gameplay.Hero
 {
     public class Hero : MonoBehaviour
     {

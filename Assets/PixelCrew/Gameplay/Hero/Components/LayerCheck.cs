@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PixelCrew.Hero
+namespace PixelCrew.Gameplay.Hero.Components
 {
     public class LayerCheck : MonoBehaviour
     {

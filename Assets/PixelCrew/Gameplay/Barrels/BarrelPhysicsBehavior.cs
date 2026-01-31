@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 
-namespace PixelCrew.Platform
+namespace PixelCrew.Gameplay.Barrels
 {
     public class BarrelPhysicsBehavior : MonoBehaviour
     {
         private Rigidbody2D _rigidbody;
 
-        public float heroBounceForce = 6f;
-        public float collisionDampening = 0.2f;
+        [SerializeField] private float heroBounceForce = 6f;
+        [SerializeField] private float collisionDampening = 0.2f;
 
-        void Start()
+        private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        void OnCollisionEnter2D(Collision2D collision)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.contactCount == 0) return;
 
