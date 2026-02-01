@@ -4171,7 +4171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 3
   _jumpImpulse: 12
-  _damageJumpSpeed: 0
+  _damageJumpSpeed: 50
   _groundCheck: {fileID: 473132986}
 --- !u!70 &1919632129
 CapsuleCollider2D:
@@ -5156,7 +5156,7 @@ PrefabInstance:
     - target: {fileID: 8834262923868512901, guid: a5e40ceed8244cd4b85eb868d38fc2cf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.7169516
+      value: -4.22
       objectReference: {fileID: 0}
     - target: {fileID: 8834262923868512901, guid: a5e40ceed8244cd4b85eb868d38fc2cf,
         type: 3}
