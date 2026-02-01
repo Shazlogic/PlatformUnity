@@ -7,6 +7,7 @@ namespace PixelCrew.Gameplay.Hero
     {
         [SerializeField] private float _speed;
         [SerializeField] private float _jumpImpulse;
+        [SerializeField] private float _damageJumpSpeed;
         [SerializeField] private LayerCheck _groundCheck;
 
         private Rigidbody2D _rigidbody;
@@ -19,6 +20,7 @@ namespace PixelCrew.Gameplay.Hero
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunning = Animator.StringToHash("is-running");
         private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
+        private static readonly int Hit = Animator.StringToHash("hit");
 
         private void Awake()
         {
@@ -124,6 +126,12 @@ namespace PixelCrew.Gameplay.Hero
         public void SaySomething()
         {
             Debug.Log("SaySomething");
+        }
+
+        public void TakeDamage()
+        {
+            _animator.SetTrigger(Hit);
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
         }
     }
 }
