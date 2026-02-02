@@ -941,6 +941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1672572948}
+  - {fileID: 1134116675}
   m_Father: {fileID: 128826822}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1407,6 +1408,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6899276697942721159}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1134116674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1134116675}
+  m_Layer: 0
+  m_Name: TeleportDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1134116675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134116674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.29, y: -0.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 524974775}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1162581047
 GameObject:
   m_ObjectHideFlags: 0
@@ -4425,6 +4456,52 @@ MonoBehaviour:
   m_DefaultActionMap: Hero
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1 &1946473130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2380095485893953944, guid: ca70fd9c3f020834db1caa1336ad292c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6442323444780462564}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1946473131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946473130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce754287e0c0767488003213c1f14a29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destTransform: {fileID: 1134116675}
+--- !u!114 &1946473132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946473130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3427a40d1f5e1a747a725d84db17717e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Player
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1946473131}
+        m_MethodName: Teleport
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2011075674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5517813325541448978, guid: a8abdb7bb4db0fc4892b101d69a2ac49,
@@ -6249,12 +6326,12 @@ PrefabInstance:
     - target: {fileID: 2594003008954343575, guid: ca70fd9c3f020834db1caa1336ad292c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.95
+      value: -6.53
       objectReference: {fileID: 0}
     - target: {fileID: 2594003008954343575, guid: ca70fd9c3f020834db1caa1336ad292c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.15
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 2594003008954343575, guid: ca70fd9c3f020834db1caa1336ad292c,
         type: 3}
@@ -6296,6 +6373,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7018472363419791269, guid: ca70fd9c3f020834db1caa1336ad292c,
+        type: 3}
+      propertyPath: _destTransform
+      value: 
+      objectReference: {fileID: 1134116675}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca70fd9c3f020834db1caa1336ad292c, type: 3}
 --- !u!1001 &6899276697942721159
