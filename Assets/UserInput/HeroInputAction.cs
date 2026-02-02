@@ -33,6 +33,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""33722e38-d0c4-4c0f-8eac-bdeb61bf51e8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -156,6 +164,17 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b11fff3d-e207-4afe-91ec-1256598fb281"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -166,6 +185,7 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
         m_Hero = asset.FindActionMap("Hero", throwIfNotFound: true);
         m_Hero_SaySomething = m_Hero.FindAction("SaySomething", throwIfNotFound: true);
         m_Hero_Movement = m_Hero.FindAction("Movement", throwIfNotFound: true);
+        m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -217,12 +237,14 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     private IHeroActions m_HeroActionsCallbackInterface;
     private readonly InputAction m_Hero_SaySomething;
     private readonly InputAction m_Hero_Movement;
+    private readonly InputAction m_Hero_Interact;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
         public HeroActions(@HeroInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @SaySomething => m_Wrapper.m_Hero_SaySomething;
         public InputAction @Movement => m_Wrapper.m_Hero_Movement;
+        public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -238,6 +260,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnMovement;
+                @Interact.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -248,6 +273,9 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -256,5 +284,6 @@ public class @HeroInputAction : IInputActionCollection, IDisposable
     {
         void OnSaySomething(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }
