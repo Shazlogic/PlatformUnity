@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2380095485893953944
+--- !u!1 &4686843780231049284
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2594003008954343575}
-  - component: {fileID: 2917721608468245574}
-  - component: {fileID: 1676773118427866805}
+  - component: {fileID: 5286344022429118538}
+  - component: {fileID: 5254326665975266954}
+  - component: {fileID: 208734961552842101}
+  - component: {fileID: 888001836915071796}
   m_Layer: 0
-  m_Name: Teleport
+  m_Name: Potions_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2594003008954343575
+--- !u!4 &5286344022429118538
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380095485893953944}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 4686843780231049284}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.2092288, y: -0.7630572, z: 0.06347658}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2917721608468245574
+--- !u!212 &5254326665975266954
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380095485893953944}
+  m_GameObject: {fileID: 4686843780231049284}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -70,25 +71,26 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: eb0fcae2b96787243987fdc535fa63b0, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 2011574832808370117, guid: b3912f85d70643d46a19a35664c2c370,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.40625, y: 0.53125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1676773118427866805
-CircleCollider2D:
+--- !u!61 &208734961552842101
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380095485893953944}
+  m_GameObject: {fileID: 4686843780231049284}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -96,5 +98,40 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.40625, y: 0.53125}
+    newSize: {x: 0.40625, y: 0.53125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 0.40625, y: 0.53125}
+  m_EdgeRadius: 0
+--- !u!114 &888001836915071796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4686843780231049284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9216bf7cc678afe458fe9608bb8ebadf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _loop: 1
+  _sprites:
+  - {fileID: 2011574832808370117, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+  - {fileID: -8438763151253471919, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+  - {fileID: -7587008787810219046, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+  - {fileID: 950379908824699032, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+  - {fileID: -512142692958456438, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+  - {fileID: 8745225756722806956, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+  - {fileID: -7481350877133238684, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
