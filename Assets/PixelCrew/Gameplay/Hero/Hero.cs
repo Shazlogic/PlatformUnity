@@ -1,4 +1,5 @@
 ﻿using Assets.PixelCrew.Core.Components;
+using PixelCrew.Core.Components;
 using PixelCrew.Gameplay.Hero.Components;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace PixelCrew.Gameplay.Hero
         [SerializeField] private float _interactionRadius;
         [SerializeField] private LayerMask _interactionLayer;
         [SerializeField] private SpawnComponent _footStepParticle;
+        [SerializeField] private ParticleSystem _hitParticles;
 
         private Collider2D[] _interactionResult = new Collider2D[1];
         private Rigidbody2D _rigidbody;
@@ -135,6 +137,23 @@ namespace PixelCrew.Gameplay.Hero
         {
             _animator.SetTrigger(Hit);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
+
+            if (EnterTriggerComponent.TotalScore > 0)
+            {
+                SpawnCoins();
+            }
+        }
+
+        private void SpawnCoins()
+        {
+            var countCountToDispose = Mathf.Min(EnterTriggerComponent.TotalScore, 5);
+            EnterTriggerComponent.CoinsToDispose(countCountToDispose);
+
+            var burst =_hitParticles.emission.GetBurst(0);
+            burst.count = countCountToDispose;
+            _hitParticles.emission.SetBurst(0, burst);
+            _hitParticles.gameObject.SetActive(true);
+            _hitParticles.Play();
         }
 
         public void Interact()
