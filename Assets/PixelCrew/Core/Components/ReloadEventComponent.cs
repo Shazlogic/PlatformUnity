@@ -7,7 +7,7 @@ namespace PixelCrew.Core.Components
     {
         public void Reload()
         {
-            EnterTriggerComponent.TotalScore = 0;
+            EnterTriggerComponent.Reset();
 
             var scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
