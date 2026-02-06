@@ -126,18 +126,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _loop: 1
-  _sprites:
-  - {fileID: 3714227102187029162, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
-  - {fileID: -6202940564662568092, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
-  - {fileID: -8747976068718324687, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
-  - {fileID: 7142050841817600938, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
-  - {fileID: -860807820763296739, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
-  - {fileID: -5249288142952506341, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
-  - {fileID: 1089735312403315716, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
+  _clips:
+  - _name: potions
+    _sprites:
+    - {fileID: 3714227102187029162, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+    - {fileID: -6202940564662568092, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+    - {fileID: -8747976068718324687, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+    - {fileID: 7142050841817600938, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+    - {fileID: -860807820763296739, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+    - {fileID: -5249288142952506341, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+    - {fileID: 1089735312403315716, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+    _loop: 1
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - _name: 
+    _sprites: []
+    _loop: 0
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!114 &7516223132506589058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,12 +202,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 30
-  _loop: 0
   _sprites:
   - {fileID: 7741721744188925002, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
   - {fileID: 5533858432813650269, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
   - {fileID: 7505194234833031526, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
   - {fileID: -4281154887353889082, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []

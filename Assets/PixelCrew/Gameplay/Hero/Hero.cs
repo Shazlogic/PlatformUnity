@@ -14,6 +14,7 @@ namespace PixelCrew.Gameplay.Hero
         [SerializeField] private float _interactionRadius;
         [SerializeField] private LayerMask _interactionLayer;
         [SerializeField] private SpawnComponent _footStepParticle;
+        [SerializeField] private SpawnComponent _footJumpParticle;
         [SerializeField] private ParticleSystem _hitParticles;
 
         private Collider2D[] _interactionResult = new Collider2D[1];
@@ -22,6 +23,8 @@ namespace PixelCrew.Gameplay.Hero
         private Animator _animator;
         private bool _isGrounded;
         private bool _allowDoubleJump;
+        private bool _didDoubleJump;
+        private bool _wasGrounded;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunning = Animator.StringToHash("is-running");
@@ -36,7 +39,13 @@ namespace PixelCrew.Gameplay.Hero
 
         private void Update()
         {
+            _wasGrounded = _isGrounded;
             _isGrounded = IsGrounded();
+
+            if (!_wasGrounded && _isGrounded)
+            {
+                OnLanded();
+            }
         }
 
         public void SetDirection(Vector2 direction)
@@ -95,11 +104,13 @@ namespace PixelCrew.Gameplay.Hero
             if (_isGrounded)
             {
                 yVelocity += _jumpImpulse;
+                SpawnFootDust("jump");
             }
             else if (_allowDoubleJump)
             {
                 yVelocity = _jumpImpulse;
                 _allowDoubleJump = false;
+                _didDoubleJump = true;
             }
 
             return yVelocity;
@@ -149,11 +160,23 @@ namespace PixelCrew.Gameplay.Hero
             var countCountToDispose = Mathf.Min(EnterTriggerComponent.TotalScore, 5);
             EnterTriggerComponent.CoinsToDispose(countCountToDispose);
 
-            var burst =_hitParticles.emission.GetBurst(0);
+            var burst = _hitParticles.emission.GetBurst(0);
             burst.count = countCountToDispose;
             _hitParticles.emission.SetBurst(0, burst);
             _hitParticles.gameObject.SetActive(true);
             _hitParticles.Play();
+        }
+
+        /// <summary>
+        /// Метод вызывается при приземлении персонажа.
+        /// </summary>
+        private void OnLanded()
+        {
+            if (_didDoubleJump)
+            {
+                SpawnJumpDust("fall");
+                _didDoubleJump = false;
+            }
         }
 
         public void Interact()
@@ -176,9 +199,14 @@ namespace PixelCrew.Gameplay.Hero
             }
         }
 
-        public void SpawnFootDust()
+        public void SpawnJumpDust(string clipName)
         {
-            _footStepParticle.Spawn();
+            _footJumpParticle.SpawnClip(clipName);
+        }
+
+        public void SpawnFootDust(string clipName)
+        {
+            _footStepParticle.SpawnClip(clipName);
         }
     }
 }

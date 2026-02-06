@@ -96,12 +96,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _loop: 1
-  _sprites:
-  - {fileID: -6018279857378552221, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
-  - {fileID: -6505298659582443948, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
-  - {fileID: -7718236803453008505, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
-  - {fileID: -2749089684739404911, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
+  _clips:
+  - _name: water
+    _sprites:
+    - {fileID: -6018279857378552221, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+    - {fileID: -6505298659582443948, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+    - {fileID: -7718236803453008505, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+    - {fileID: -2749089684739404911, guid: db5b0ac2f6cafbe4bb054e4757cf430f, type: 3}
+    _loop: 0
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
