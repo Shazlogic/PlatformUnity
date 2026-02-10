@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2066947005821001676}
   - component: {fileID: 7516223132506589058}
   - component: {fileID: 328562957558666}
-  - component: {fileID: 1158408851682784830}
+  - component: {fileID: 3852169263199656587}
   m_Layer: 0
   m_Name: Potions_7
   m_TagString: Untagged
@@ -141,13 +141,28 @@ MonoBehaviour:
     _onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - _name: 
-    _sprites: []
+  - _name: destroy
+    _sprites:
+    - {fileID: -4281154887353889082, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+    - {fileID: 7505194234833031526, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+    - {fileID: 5533858432813650269, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+    - {fileID: 7741721744188925002, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
     _loop: 0
     _allowNextClip: 0
     _onComplete:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 3852169263199656587}
+          m_MethodName: DestroyObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &7516223132506589058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +190,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2066947005821001676}
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: destroy
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 809002032246990022}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &328562957558666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,8 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heal: 1
-  _pickupAnimation: {fileID: 1158408851682784830}
---- !u!114 &1158408851682784830
+--- !u!114 &3852169263199656587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,12 +234,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1948523649194631812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aafe4a9e8f468364a8ce6906f6110ac8, type: 3}
+  m_Script: {fileID: 11500000, guid: 24383300ffac2504ab0f676ee8b7527f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 30
-  _sprites:
-  - {fileID: 7741721744188925002, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
-  - {fileID: 5533858432813650269, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
-  - {fileID: 7505194234833031526, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
-  - {fileID: -4281154887353889082, guid: b3912f85d70643d46a19a35664c2c370, type: 3}
+  _objectToDestroy: {fileID: 1948523649194631812}
