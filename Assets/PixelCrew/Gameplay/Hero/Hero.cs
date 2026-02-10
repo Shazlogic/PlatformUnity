@@ -25,6 +25,7 @@ namespace PixelCrew.Gameplay.Hero
         private bool _allowDoubleJump;
         private bool _didDoubleJump;
         private bool _wasGrounded;
+        private bool _isJumping;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunning = Animator.StringToHash("is-running");
@@ -81,13 +82,15 @@ namespace PixelCrew.Gameplay.Hero
             if (_isGrounded)
             {
                 _allowDoubleJump = true;
+                _isJumping = false;
             }
 
             if (isJumpPressing)
             {
+                _isJumping = true;
                 yVelocity = CalculateJumpVelocity(yVelocity);
             }
-            else if (_rigidbody.velocity.y > 0)
+            else if (_rigidbody.velocity.y > 0 && _isJumping)
             {
                 yVelocity *= 0.5f;
             }
@@ -146,6 +149,7 @@ namespace PixelCrew.Gameplay.Hero
 
         public void TakeDamage()
         {
+            _isJumping = false;
             _animator.SetTrigger(Hit);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
 
