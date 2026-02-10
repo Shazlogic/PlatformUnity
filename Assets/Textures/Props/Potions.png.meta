@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: 7741721744188925002
     second: Potions_33
+  - first:
+      213: 6040734443530017722
+    second: Potions_21
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -622,6 +625,27 @@ TextureImporter:
       bones: []
       spriteID: a446c40b8ee107b60800000000000000
       internalID: 7741721744188925002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Potions_21
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 25
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abbd211a8fff4d350800000000000000
+      internalID: 6040734443530017722
       vertices: []
       indices: 
       edges: []
