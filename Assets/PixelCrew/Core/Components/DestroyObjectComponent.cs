@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace PixelCrew.Gameplay.Coins.Components
+namespace PixelCrew.Core.Components
 {
     public class DestroyObjectComponent : MonoBehaviour
     {
