@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.PixelCrew.Gameplay.Coins;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace PixelCrew.Core.Components
@@ -7,7 +8,7 @@ namespace PixelCrew.Core.Components
     {
         public void Reload()
         {
-            EnterTriggerComponent.Reset();
+            TotalScore.Reset();
 
             var scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);

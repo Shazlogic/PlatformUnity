@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7454882798833192254}
   - component: {fileID: 7454882798833192255}
   - component: {fileID: 6975010081138811402}
-  - component: {fileID: 1843107392952139109}
+  - component: {fileID: 8793686128320934819}
   m_Layer: 9
   m_Name: Spikes
   m_TagString: Untagged
@@ -141,8 +141,8 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1843107392952139109}
-        m_MethodName: ApplyDamage
+      - m_Target: {fileID: 8793686128320934819}
+        m_MethodName: Apply
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1843107392952139109
+--- !u!114 &8793686128320934819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7454882798833192252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5969d2e3e844d49b2564609dbef0ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b0fff39c9bd04d41a67d76a340e7d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  _hpDelta: -1

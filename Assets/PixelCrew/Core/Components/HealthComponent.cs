@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace PixelCrew.Core.Components
+namespace Assets.PixelCrew.Core.Components
 {
     public class HealthComponent : MonoBehaviour
     {
@@ -11,27 +11,24 @@ namespace PixelCrew.Core.Components
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] private UnityEvent _onDie;
 
-        public void ApplyDamage(int damageValue)
+        public void ModifyHealth(int healthDelta)
         {
-            _health -= damageValue;
-            _onDamage?.Invoke();
+            _health += healthDelta;
 
-            if (_health <= 0)
+            if (healthDelta < 0)
+            {
+                _onDamage?.Invoke();
+            }
+
+            if (healthDelta > 0)
+            {
+                _onHeal?.Invoke();
+            }
+
+            if (_health < 0)
             {
                 _onDie?.Invoke();
             }
-        }
-
-        public void Heal(int healValue)
-        {
-            _health += healValue;
-
-            if (_maxHealth > 0 && _health > _maxHealth)
-            {
-                _health = _maxHealth;
-            }
-
-            _onHeal?.Invoke();
         }
     }
 }
