@@ -1,4 +1,6 @@
 ﻿using Assets.PixelCrew.Core.Components;
+using Assets.PixelCrew.Core.Utils;
+using Assets.PixelCrew.Gameplay.Coins;
 using PixelCrew.Core.Components;
 using PixelCrew.Gameplay.Hero.Components;
 using UnityEngine;
@@ -10,11 +12,18 @@ namespace PixelCrew.Gameplay.Hero
         [SerializeField] private float _speed;
         [SerializeField] private float _jumpImpulse;
         [SerializeField] private float _damageJumpSpeed;
-        [SerializeField] private LayerCheck _groundCheck;
+        [SerializeField] private float _slamDownVelocity;
         [SerializeField] private float _interactionRadius;
+        [SerializeField] private LayerMask _groundLayer;
         [SerializeField] private LayerMask _interactionLayer;
+
+        [SerializeField] private float _groundCheckRadius;
+        [SerializeField] private Vector3 _groundCheckPositionDelta;
+
+        [Space] [Header("Particles")]
         [SerializeField] private SpawnComponent _footStepParticle;
-        [SerializeField] private SpawnComponent _footJumpParticle;
+        [SerializeField] private SpawnComponent _jumpParticles;
+        [SerializeField] private SpawnComponent _slamDownParticles;
         [SerializeField] private ParticleSystem _hitParticles;
 
         private Collider2D[] _interactionResult = new Collider2D[1];
@@ -23,8 +32,6 @@ namespace PixelCrew.Gameplay.Hero
         private Animator _animator;
         private bool _isGrounded;
         private bool _allowDoubleJump;
-        private bool _didDoubleJump;
-        private bool _wasGrounded;
         private bool _isJumping;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
@@ -40,13 +47,7 @@ namespace PixelCrew.Gameplay.Hero
 
         private void Update()
         {
-            _wasGrounded = _isGrounded;
             _isGrounded = IsGrounded();
-
-            if (!_wasGrounded && _isGrounded)
-            {
-                OnLanded();
-            }
         }
 
         public void SetDirection(Vector2 direction)
@@ -107,13 +108,13 @@ namespace PixelCrew.Gameplay.Hero
             if (_isGrounded)
             {
                 yVelocity += _jumpImpulse;
-                SpawnFootDust("jump");
+                _jumpParticles.Spawn();
             }
             else if (_allowDoubleJump)
             {
                 yVelocity = _jumpImpulse;
                 _allowDoubleJump = false;
-                _didDoubleJump = true;
+                _jumpParticles.Spawn();
             }
 
             return yVelocity;
@@ -133,7 +134,9 @@ namespace PixelCrew.Gameplay.Hero
 
         private bool IsGrounded()
         {
-            return _groundCheck.IsTouchingLayer;
+            var hit = Physics2D.CircleCast(transform.position + _groundCheckPositionDelta, _groundCheckRadius, Vector2.down, 0, _groundLayer);
+
+            return hit.collider != null;
         }
 
         private void OnDrawGizmos()
@@ -153,7 +156,7 @@ namespace PixelCrew.Gameplay.Hero
             _animator.SetTrigger(Hit);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpSpeed);
 
-            if (EnterTriggerComponent.TotalScore > 0)
+            if (TotalScore.CurrentTotal > 0)
             {
                 SpawnCoins();
             }
@@ -161,26 +164,14 @@ namespace PixelCrew.Gameplay.Hero
 
         private void SpawnCoins()
         {
-            var countCountToDispose = Mathf.Min(EnterTriggerComponent.TotalScore, 5);
-            EnterTriggerComponent.CoinsToDispose(countCountToDispose);
+            var countCountToDispose = Mathf.Min(TotalScore.CurrentTotal, 5);
+            TotalScore.CoinsToDispose(countCountToDispose);
 
             var burst = _hitParticles.emission.GetBurst(0);
             burst.count = countCountToDispose;
             _hitParticles.emission.SetBurst(0, burst);
             _hitParticles.gameObject.SetActive(true);
             _hitParticles.Play();
-        }
-
-        /// <summary>
-        /// Метод вызывается при приземлении персонажа.
-        /// </summary>
-        private void OnLanded()
-        {
-            if (_didDoubleJump)
-            {
-                SpawnJumpDust("fall");
-                _didDoubleJump = false;
-            }
         }
 
         public void Interact()
@@ -203,9 +194,17 @@ namespace PixelCrew.Gameplay.Hero
             }
         }
 
-        public void SpawnJumpDust(string clipName)
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            _footJumpParticle.SpawnClip(clipName);
+            if (other.gameObject.IsInLayer(_groundLayer))
+            {
+                var contact = other.contacts[0];
+
+                if (contact.relativeVelocity.y >= _slamDownVelocity)
+                {
+                    _slamDownParticles.Spawn();
+                }
+            }
         }
 
         public void SpawnFootDust(string clipName)
